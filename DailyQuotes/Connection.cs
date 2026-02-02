@@ -8,7 +8,7 @@ namespace DailyQuotes
 {
     public class Connection
     {
-        static string Server = "SGLT22042";
+        static string Server = "TRG019";
         static string Username = "sa";
         static string Password = "P@$$w0rd";
         static string Database = "DailyQuotes";
