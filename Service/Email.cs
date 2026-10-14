@@ -40,7 +40,7 @@ namespace Service
 			await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
 
 			// Authenticate using your Gmail App Password
-			await client.AuthenticateAsync("doducduy92@gmail.com", "lcixllazzetdxpyh");
+			await client.AuthenticateAsync("doducduy92@gmail.com", "txrckhhugqcdhsez");
 
 			await client.SendAsync(email);
 			await client.DisconnectAsync(true);

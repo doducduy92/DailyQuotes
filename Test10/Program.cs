@@ -6,8 +6,8 @@ namespace Test10
 	{
 		static async Task Main(string[] args)
 		{
-			
-			var list = await DuyUtility.GetQuoteList();
+			await DuyUtility.CompareDate();
+			//var list = await DuyUtility.GetQuoteList();
 			Console.WriteLine("Hello, World!");
 		}
 	}

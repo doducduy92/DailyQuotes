@@ -1,7 +1,9 @@
-﻿using Supabase;
+﻿using Microsoft.Extensions.Logging;
+using Supabase;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Serilog;
 
 namespace Service
 {
@@ -23,14 +25,21 @@ namespace Service
 
 		public static async Task CompareDate()
 		{
-			string text = ReadDate();
-			string today = DateTime.Today.ToString("yyyyMMdd");
-			if (Convert.ToInt32(text) <= Convert.ToInt32(today))
+			try
 			{
-				var list = await GetQuoteList();
+				string text = ReadDate();
+				string today = DateTime.Today.ToString("yyyyMMdd");
+				if (Convert.ToInt32(text) <= Convert.ToInt32(today))
+				{
+					var list = await GetQuoteList();
 
-				await Email.SendEmailAsync(list);
-				WriteDate();
+					await Email.SendEmailAsync(list);
+					WriteDate();
+				}
+			}
+			catch (Exception ex)
+			{
+				Log.Fatal(ex, "An error occurred while comparing dates.");
 			}
 		}
 
